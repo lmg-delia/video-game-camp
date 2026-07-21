@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://duw4jiskfixlt"]
+
+[ext_resource type="PackedScene" uid="uid://b8lwootat6ty7" path="res://floor.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://boqjy5vi3uhtr" path="res://character_body_2d.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cqydlsn14kf6a" path="res://fall_detector.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://nf7dl88ufrvb" path="res://liveslabel.gd" id="4_1bvp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vobva"]
+size = Vector2(3361, 134)
+
+[node name="Main" type="Node2D" unique_id=865574076]
+
+[node name="floor" parent="." unique_id=767127254 instance=ExtResource("1_ig7tw")]
+position = Vector2(5, 0)
+
+[node name="floor2" parent="." unique_id=504051709 instance=ExtResource("1_ig7tw")]
+position = Vector2(203, 648)
+
+[node name="floor3" parent="." unique_id=35627291 instance=ExtResource("1_ig7tw")]
+position = Vector2(451.00003, 646)
+scale = Vector2(2.7600012, 1)
+
+[node name="floor4" parent="." unique_id=2071799218 instance=ExtResource("1_ig7tw")]
+position = Vector2(68, 647)
+
+[node name="floor5" parent="." unique_id=974761861 instance=ExtResource("1_ig7tw")]
+position = Vector2(899, 621)
+
+[node name="floor6" parent="." unique_id=62552835 instance=ExtResource("1_ig7tw")]
+position = Vector2(1078, 554)
+
+[node name="floor7" parent="." unique_id=1343721047 instance=ExtResource("1_ig7tw")]
+position = Vector2(1223, 447)
+
+[node name="floor8" parent="." unique_id=1987393066 instance=ExtResource("1_ig7tw")]
+position = Vector2(1367, 438)
+
+[node name="floor9" parent="." unique_id=2025751857 instance=ExtResource("1_ig7tw")]
+position = Vector2(1508, 432)
+
+[node name="CharacterBody2D" parent="floor9" unique_id=1325084637 instance=ExtResource("2_0xm2m")]
+position = Vector2(-1219, -443)
+
+[node name="Fall detector" type="Area2D" parent="." unique_id=238976973]
+script = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fall detector" unique_id=2047981372]
+position = Vector2(1103.5, 837)
+shape = SubResource("RectangleShape2D_vobva")
+
+[node name="floor" parent="Fall detector" unique_id=1076452459 instance=ExtResource("1_ig7tw")]
+position = Vector2(1730, 561)
+
+[node name="floor2" parent="Fall detector" unique_id=639087010 instance=ExtResource("1_ig7tw")]
+position = Vector2(1969, 466)
+
+[node name="floor3" parent="Fall detector" unique_id=351734699 instance=ExtResource("1_ig7tw")]
+position = Vector2(2286, 518)
+
+[node name="floor4" parent="Fall detector" unique_id=589719467 instance=ExtResource("1_ig7tw")]
+position = Vector2(2543, 486)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=453011203]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1138312121]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=2128887585]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="Liveslabel" type="Label" parent="CanvasLayer/Control/MarginContainer" unique_id=912631539]
+layout_mode = 2
+size_flags_vertical = 0
+text = "games rule"
+script = ExtResource("4_1bvp3")
+
+[connection signal="body_entered" from="Fall detector" to="Fall detector" method="_on_body_entered"]
