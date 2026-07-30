@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c3cplao8ls7kd"]
+
+[ext_resource type="Script" uid="uid://dpd1ss4fjjviq" path="res://physics_enemy.gd" id="1_dqhia"]
+[ext_resource type="PackedScene" uid="uid://blgn475ikawgg" path="res://enemy.tscn" id="2_5hhwy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfuxd"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=793066564]
+script = ExtResource("1_dqhia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=931652617]
+shape = SubResource("CircleShape2D_tfuxd")
+
+[node name="Enemy" parent="." unique_id=22889347 instance=ExtResource("2_5hhwy")]
+position = Vector2(45, -11)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1670302983]
+position = Vector2(106, 57)
+target_position = Vector2(105, -1)

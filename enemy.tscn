@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://blgn475ikawgg"]
+
+[ext_resource type="Script" uid="uid://cqydlsn14kf6a" path="res://fall_detector.gd" id="1_qi2p4"]
+[ext_resource type="Texture2D" uid="uid://bphr81007vthi" path="res://mini boss.png" id="2_4gyqm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k104"]
+radius = 64.53681
+
+[node name="Enemy" type="Area2D" unique_id=22889347]
+script = ExtResource("1_qi2p4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=539052498]
+position = Vector2(62, 70)
+shape = SubResource("CircleShape2D_7k104")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=606697235]
+position = Vector2(58, 30)
+scale = Vector2(0.7658334, 0.66749996)
+texture = ExtResource("2_4gyqm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

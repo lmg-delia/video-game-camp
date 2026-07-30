@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://vvsgtfarhxex"]
+
+[ext_resource type="Script" uid="uid://dydytestar1q6" path="res://collectable.gd" id="1_3dk6v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfuxd"]
+radius = 46.270943
+
+[node name="collectable" type="Area2D" unique_id=677921115]
+script = ExtResource("1_3dk6v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2034379295]
+shape = SubResource("CircleShape2D_tfuxd")
+debug_color = Color(0.68645203, 0.7235392, 0.0547024, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

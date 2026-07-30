@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cb2pxj2ne1ohd"]
+
+[ext_resource type="Script" uid="uid://cqydlsn14kf6a" path="res://fall_detector.gd" id="1_gaxcp"]
+[ext_resource type="PackedScene" uid="uid://b8lwootat6ty7" path="res://floor.tscn" id="2_1bb42"]
+[ext_resource type="PackedScene" uid="uid://vvsgtfarhxex" path="res://collectable.tscn" id="3_glu3k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vobva"]
+size = Vector2(5660, 134)
+
+[node name="Fall detector" type="Area2D" unique_id=22889347]
+script = ExtResource("1_gaxcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=539052498]
+position = Vector2(910, 837)
+shape = SubResource("RectangleShape2D_vobva")
+
+[node name="floor" parent="." unique_id=767127254 instance=ExtResource("2_1bb42")]
+position = Vector2(1730, 561)
+
+[node name="floor2" parent="." unique_id=374550507 instance=ExtResource("2_1bb42")]
+position = Vector2(1969, 466)
+
+[node name="floor3" parent="." unique_id=1076068824 instance=ExtResource("2_1bb42")]
+position = Vector2(2286, 518)
+
+[node name="floor4" parent="." unique_id=2022958447 instance=ExtResource("2_1bb42")]
+position = Vector2(2543, 486)
+
+[node name="floor5" parent="." unique_id=895466549 instance=ExtResource("2_1bb42")]
+position = Vector2(-190, 486)
+
+[node name="floor6" parent="." unique_id=681922692 instance=ExtResource("2_1bb42")]
+position = Vector2(-349, 328)
+
+[node name="floor7" parent="." unique_id=108900366 instance=ExtResource("2_1bb42")]
+position = Vector2(-535, 181)
+
+[node name="floor8" parent="." unique_id=145000065 instance=ExtResource("2_1bb42")]
+position = Vector2(-271, -75)
+
+[node name="collectable" parent="." unique_id=677921115 instance=ExtResource("3_glu3k")]
+position = Vector2(-15, -233)
+
+[node name="floor9" parent="." unique_id=355627151 instance=ExtResource("2_1bb42")]
+position = Vector2(-680, 49)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
